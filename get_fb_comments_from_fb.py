@@ -90,7 +90,7 @@ def processFacebookComment(comment, status_id, parent_id=''):
     comment_id = comment['id']
     comment_message = '' if 'message' not in comment or comment['message'] \
         is '' else unicode_decode(comment['message'])
-    comment_author = unicode_decode(comment['from']['name'])
+    comment_author = unicode_decode(comment['from'].get('name', 'Unknown'))
     num_reactions = 0 if 'reactions' not in comment else \
         comment['reactions']['summary']['total_count']
 

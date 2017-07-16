@@ -113,7 +113,7 @@ def processFacebookPageFeedStatus(status):
         datetime.timedelta(hours=-5)  # EST
     status_published = status_published.strftime(
         '%Y-%m-%d %H:%M:%S')  # best time format for spreadsheet programs
-    status_author = unicode_decode(status['from']['name'])
+    status_author = unicode_decode(status['from'].get('name', 'Unknown'))
 
     # Nested items require chaining dictionary keys.
 
